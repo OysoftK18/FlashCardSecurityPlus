@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StudyAppSec+</string>
+    <string name="flashcard_for_comptia_security">Flashcard for comptia security+</string>
+    <string name="start">Start</string>
+    <string name="sync_questions">Sync Questions</string>
+    <string name="created_by_oysoft">Created by Oysoft</string>
+</resources>
