@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.example.serpent.ui.theme.AppTheme
-import com.oysoft.studyapp.screens.HomeScreen
+import com.oysoft.studyapp.navigation.Navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme(darkTheme = true) {
                 Scaffold { paddingScaffold ->
-                    HomeScreen(modifier = Modifier.padding(paddingScaffold))
+                    Navigation(modifier = Modifier.padding(paddingScaffold))
                 }
             }
         }

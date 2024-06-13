@@ -11,14 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.serpent.ui.theme.CustomTypo
 import com.oysoft.studyapp.R
+import com.oysoft.studyapp.navigation.Screen
 
-@Preview(showBackground = true)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -35,7 +35,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.Center) {
             Button(modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp), onClick = { /*TODO*/ }) {
+                .padding(horizontal = 32.dp),
+                onClick = { navController.navigate(Screen.FlashCards.route) }) {
                 Text(text = stringResource(R.string.start))
             }
             Button(modifier = Modifier

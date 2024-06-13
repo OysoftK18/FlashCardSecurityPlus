@@ -4,4 +4,7 @@
     <string name="start">Start</string>
     <string name="sync_questions">Sync Questions</string>
     <string name="created_by_oysoft">Created by Oysoft</string>
+    <string name="failed">Failed</string>
+    <string name="ask_me_later">Ask me later</string>
+    <string name="approved">Approved</string>
 </resources>
