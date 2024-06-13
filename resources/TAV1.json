@@ -1,0 +1,112 @@
+[
+    {
+        "ID": 1,
+        "Question": "What is phishing?",
+        "Answer": "the fraudulent practice of sending emails or other messages purporting to be from reputable companies in order to induce individuals to reveal personal information, such as passwords and credit card numbers. Mostly focus in collect access credentials."
+    },
+    {
+        "ID": 2,
+        "Question": "What is pharming?",
+        "Answer": "the fraudulent practice of directing internet users to a bogus website that mimics the appearance of a legitimate one, in order to obtain personal information such as passwords, account numbers, etc. (same as phishing) but this is for large group of people."
+    },
+    {
+        "ID": 3,
+        "Question": "What is vishing?",
+        "Answer": "the fraudulent practice of making phone calls or leaving voice messages purporting to be from reputable companies in order to induce individuals to reveal personal information, such as bank details and credit card numbers."
+    },
+    {
+        "ID": 4,
+        "Question": "What is Smishing?",
+        "Answer": "the fraudulent practice of sending text messages purporting to be from reputable companies in order to induce individuals to reveal personal information, such as passwords or credit card numbers."
+    },
+    {
+        "ID": 5,
+        "Question": "What is Spear phishing?",
+        "Answer": "a type of phishing campaign that targets a specific person or group and often will include information known to be of interest to the target, such as current events or financial documents."
+    },
+    {
+        "ID": 6,
+        "Question": "What is Whaling?",
+        "Answer": " is a method used by cybercriminals to masquerade as a senior player at an organization and directly target senior or other important individuals at an organization, with the aim of stealing money or sensitive information or gaining access to their computer systems for criminal purposes."
+    },
+    {
+        "ID": 7,
+        "Question": "What is Spam?",
+        "Answer": "sending unwanted messages to many people, often for business or malicious reasons."
+    },
+    {
+        "ID": 8,
+        "Question": "What is Spam over instant messaging?",
+        "Answer": "is the equivalent of spam email but on instant messaging platforms"
+    },
+    {
+        "ID": 9,
+        "Question": "What is Dumpster diving?",
+        "Answer": "the practice of extracting sensitive information and potential vulnerabilities from discarded physical or digital assets"
+    },
+    {
+        "ID": 10,
+        "Question": "What is Shoulder surfing?",
+        "Answer": "the practice of spying on the user of an ATM, computer, or other electronic device in order to obtain their personal access information."
+    },
+    {
+        "ID": 11,
+        "Question": "What is Tailgating?",
+        "Answer": "a breach of security where an unauthorized actor gains access to a controlled area by closely following someone with legitimate access credentials"
+    },
+    {
+        "ID": 12,
+        "Question": "What is Eliciting information?",
+        "Answer": "a structured method of communication used to extract predetermined information from people without making them aware that they are a collection target."
+    },
+    {
+        "ID": 13,
+        "Question": "What is Prepending?",
+        "Answer": " when an attacker prepends, or attaches, a trustworthy value like \u201cRE:\u201d or \u201cMAILSAFE: PASSED\u201d to a message in order to make the message appear more trustworthy."
+    },
+    {
+        "ID": 14,
+        "Question": "What is Identity Fraud?",
+        "Answer": "all types of crime in which someone wrongfully obtains and uses another person\u02bcs personal data in some way that involves fraud or deception, typically for economic gain."
+    },
+    {
+        "ID": 15,
+        "Question": "What is Invoice scams?",
+        "Answer": " a well-coordinated ploy in which an attacker attempts to scam a business into paying a fake invoice\u2013or paying a legitimate invoice to a fake account\u2013by impersonating a vendor or partner."
+    },
+    {
+        "ID": 16,
+        "Question": "What is Credential harvesting?",
+        "Answer": "a cyber attack that involves stealing user credentials (like usernames and passwords)."
+    },
+    {
+        "ID": 17,
+        "Question": "What is Reconnaissance?",
+        "Answer": "a process that threat actors use to find vulnerabilities and attack paths."
+    },
+    {
+        "ID": 18,
+        "Question": "What is Hoax?",
+        "Answer": "A hoax is a fake warning about a virus or other piece of malicious code. Typically a hoax takes the form of an e-mail or other message warning the reader of a dangerous new virus and suggesting that the reader pass the message on."
+    },
+    {
+        "ID": 19,
+        "Question": "What is Impersonation?",
+        "Answer": "a type of cybercrime where a criminal poses as a known person or organization to steal confidential data or money."
+    },
+    {
+        "ID": 20,
+        "Question": "What is Watering hole attack?",
+        "Answer": "a targeted attack designed to compromise users within a specific industry or group of users by infecting websites they typically visit and luring them to a malicious site"
+    },
+    {
+        "ID": 21,
+        "Question": "What is Typosquatting?",
+        "Answer": "a form of cybersquatting (sitting on sites under someone else's brand or copyright) that targets Internet users who incorrectly type a website address into their web browser (e.g., \u201cGooogle.com\u201d instead of \u201cGoogle.com\u201d)."
+    },
+    {
+        "ID": 22,
+        "Question": "What is Pretexting?",
+        "Answer": " is use of a fabricated story, or pretext, to gain a victim's trust and trick or manipulate them into sharing sensitive information, downloading malware, sending money to criminals, or otherwise harming themselves or the organization they work for."
+    }
+]
