@@ -6,7 +6,7 @@ import com.oysoft.studyapp.data.FlashCardRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeScreenViewModel @Inject constructor(private val repository: FlashCardRepository) :
+class HomeScreenViewModel @Inject constructor (private val repository: FlashCardRepository) :
     ViewModel() {
 
     fun onClickSyncQuestion() {

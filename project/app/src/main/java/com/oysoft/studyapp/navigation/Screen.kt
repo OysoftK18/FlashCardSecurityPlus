@@ -2,6 +2,7 @@ package com.oysoft.studyapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -20,17 +21,18 @@ fun Navigation(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.Home.route) {
         composable(Screen.Home.route) {
-            val homeScreenViewModel: HomeScreenViewModel = hiltViewModel()
+            val homeScreenViewModel: HomeScreenViewModel = viewModel()
             HomeScreen(
                 modifier = modifier,
                 navController,
-                homeScreenViewModel = HomeScreenViewModel()
+                homeScreenViewModel = homeScreenViewModel
             )
         }
         composable(Screen.FlashCards.route) {
+            val flashCardsViewModel: FlashCardsViewModel = viewModel()
             FlashCardsScreen(
                 modifier = modifier,
-                flashCardsViewModel = FlashCardsViewModel()
+                flashCardsViewModel = flashCardsViewModel
             )
         }
     }

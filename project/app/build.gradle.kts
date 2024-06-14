@@ -69,7 +69,6 @@ dependencies {
     implementation(libs.squareup.retrofit2.gson)
     implementation(libs.squareup.okhttp3.logging.interceptor)
     implementation(libs.jetbrains.kotlinx.coroutines.android)
-    implementation("com.google.dagger:hilt-android:2.44")
     implementation(libs.transport.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

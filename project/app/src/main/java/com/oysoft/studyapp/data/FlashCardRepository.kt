@@ -5,7 +5,9 @@ import com.oysoft.studyapp.utils.NetworkModule
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Singleton
 
+@Singleton
 class FlashCardRepository{
 
     private val _flashcards = MutableStateFlow<List<FlashCard>>(emptyList())
