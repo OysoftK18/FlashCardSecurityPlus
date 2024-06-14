@@ -1,23 +1,21 @@
 package com.oysoft.studyapp.viewModels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.oysoft.studyapp.questions.Flashcard
+import androidx.lifecycle.viewModelScope
+import com.oysoft.studyapp.data.FlashCardRepository
+import com.oysoft.studyapp.questions.FlashCard
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
+import javax.inject.Inject
 
-class FlashCardsViewModel : ViewModel(){
-    private val _flashcards = MutableLiveData<List<Flashcard>>()
-    val flashcards: LiveData<List<Flashcard>> = _flashcards
+@HiltViewModel
+class FlashCardsViewModel @Inject constructor(private val repository: FlashCardRepository) : ViewModel() {
 
-    init {
-        loadFlashCards()
-    }
-
-    private fun loadFlashCards() {
-        _flashcards.value = listOf(
-            Flashcard(id = 1,"What is phishing?", "It's when a person fake to be another in order to make you do something"),
-            Flashcard(id = 2,"What is vishing?", "It's when a person fake to be another via voice in order to make you do something"),
-            Flashcard(id = 3,"What is smishing?", "It's when a person fake to be another via sms in order to make you do something")
+        var flashCard: StateFlow<List<FlashCard>> = repository.flashcards.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
         )
-    }
 }

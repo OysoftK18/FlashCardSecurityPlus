@@ -1,11 +1,9 @@
-package com.oysoft.studyapp.screens
+package com.oysoft.studyapp.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -20,8 +18,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -36,11 +34,13 @@ import com.example.serpent.ui.theme.primaryContainerDarkMediumContrast
 import com.oysoft.studyapp.R
 import com.oysoft.studyapp.viewModels.FlashCardsViewModel
 
+@SuppressLint("UnrememberedMutableState")
 @Composable
 fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCardsViewModel) {
     var isFlipped by remember { mutableStateOf(false) }
     val rotation by animateFloatAsState(targetValue = if (isFlipped) 180f else 0f)
-    val flashcards by flashCardsViewModel.flashcards.observeAsState(emptyList())
+
+    val flashcards by flashCardsViewModel.flashCard.collectAsState()
     var currentIndex by remember { mutableStateOf(0) }
 
     val currentFlashcard = flashcards[currentIndex]
@@ -73,11 +73,11 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
                         }
                     }
             ) {
-                Text(
+                Text(text =
                     if (!isFlipped)
-                        currentFlashcard.question
+                        currentFlashcard.Question
                     else
-                        currentFlashcard.answer,
+                        currentFlashcard.Answer,
                     style = CustomTypo.bodyMedium
                 )
             }

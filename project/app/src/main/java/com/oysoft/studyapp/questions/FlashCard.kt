@@ -1,7 +1,7 @@
 package com.oysoft.studyapp.questions
 
-data class Flashcard(
-    val id: Int,
-    val question: String,
-    val answer: String
+data class FlashCard(
+    val ID: Int,
+    val Question: String,
+    val Answer: String
 )

@@ -1,4 +1,4 @@
-package com.oysoft.studyapp.screens
+package com.oysoft.studyapp.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,9 +16,15 @@ import androidx.navigation.NavController
 import com.example.serpent.ui.theme.CustomTypo
 import com.oysoft.studyapp.R
 import com.oysoft.studyapp.navigation.Screen
+import com.oysoft.studyapp.viewModels.FlashCardsViewModel
+import com.oysoft.studyapp.viewModels.HomeScreenViewModel
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    navController: NavController,
+    homeScreenViewModel: HomeScreenViewModel
+) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -41,7 +47,8 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
             }
             Button(modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp), onClick = { /*TODO*/ }) {
+                .padding(horizontal = 32.dp),
+                onClick = { homeScreenViewModel.onClickSyncQuestion() }) {
                 Text(text = stringResource(R.string.sync_questions))
             }
         }
