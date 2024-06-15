@@ -39,6 +39,8 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
     var isFlipped by remember { mutableStateOf(false) }
     val rotation by animateFloatAsState(targetValue = if (isFlipped) 180f else 0f)
 
+    var currentFlashCard by remember { mutableStateOf(0) }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -69,9 +71,9 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
             ) {
                 Text(text =
                     if (!isFlipped)
-                        flashCardsViewModel.list.first().Question
+                        flashCardsViewModel.getCurrentFlashCard(currentFlashCard).Question
                     else
-                        flashCardsViewModel.list.first().Answer,
+                        flashCardsViewModel.getCurrentFlashCard(currentFlashCard).Answer,
                     style = CustomTypo.bodyMedium
                 )
             }
@@ -90,6 +92,10 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
                     }
                     Button(onClick = {
                             isFlipped = false
+                        if (currentFlashCard > flashCardsViewModel.listFlashCards.value.size - 1)
+                            currentFlashCard++
+                        else
+                            currentFlashCard = 0
                     }) {
                         Text(text = stringResource(R.string.approved))
                     }

@@ -1,5 +1,6 @@
 package com.oysoft.studyapp.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -18,12 +21,14 @@ import com.oysoft.studyapp.R
 import com.oysoft.studyapp.navigation.Screen
 import com.oysoft.studyapp.viewModels.HomeScreenViewModel
 
+@SuppressLint("UnrememberedMutableState")
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
     homeScreenViewModel: HomeScreenViewModel
 ) {
+    val flashCards by homeScreenViewModel.flashCards.collectAsState()
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -41,16 +46,11 @@ fun HomeScreen(
             Button(modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 32.dp),
-                onClick = { navController.navigate(Screen.FlashCards.route) }) {
-                Text(text = stringResource(R.string.start))
-            }
-            Button(modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 32.dp),
+                enabled = flashCards.isNotEmpty(),
                 onClick = {
-                    homeScreenViewModel.getFlashCards()
+                    navController.navigate(Screen.FlashCards.route)
                 }) {
-                Text(text = stringResource(R.string.sync_questions))
+                Text(text = stringResource(R.string.start))
             }
         }
         Text(text = stringResource(R.string.created_by_oysoft))
