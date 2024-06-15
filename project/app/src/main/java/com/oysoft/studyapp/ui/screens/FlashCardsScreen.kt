@@ -18,7 +18,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,11 +38,6 @@ import com.oysoft.studyapp.viewModels.FlashCardsViewModel
 fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCardsViewModel) {
     var isFlipped by remember { mutableStateOf(false) }
     val rotation by animateFloatAsState(targetValue = if (isFlipped) 180f else 0f)
-
-    val flashcards by flashCardsViewModel.flashCard.collectAsState()
-    var currentIndex by remember { mutableStateOf(0) }
-
-    val currentFlashcard = flashcards[currentIndex]
 
     Column(
         modifier = modifier
@@ -75,9 +69,9 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
             ) {
                 Text(text =
                     if (!isFlipped)
-                        currentFlashcard.Question
+                        flashCardsViewModel.list.first().Question
                     else
-                        currentFlashcard.Answer,
+                        flashCardsViewModel.list.first().Answer,
                     style = CustomTypo.bodyMedium
                 )
             }
@@ -95,10 +89,7 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
                         Text(text = stringResource(R.string.ask_me_later))
                     }
                     Button(onClick = {
-                        if (currentIndex < flashcards.size - 1){
-                            currentIndex += 1
                             isFlipped = false
-                        }
                     }) {
                         Text(text = stringResource(R.string.approved))
                     }

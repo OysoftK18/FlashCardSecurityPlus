@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -70,6 +72,9 @@ dependencies {
     implementation(libs.squareup.okhttp3.logging.interceptor)
     implementation(libs.jetbrains.kotlinx.coroutines.android)
     implementation(libs.transport.runtime)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation)
+    kapt(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

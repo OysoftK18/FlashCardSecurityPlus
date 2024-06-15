@@ -2,7 +2,7 @@ package com.oysoft.studyapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -17,11 +17,11 @@ sealed class Screen(val route: String) {
 }
 
 @Composable
-fun Navigation(modifier: Modifier = Modifier) {
+fun NavigationManager(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.Home.route) {
         composable(Screen.Home.route) {
-            val homeScreenViewModel: HomeScreenViewModel = viewModel()
+            val homeScreenViewModel = hiltViewModel<HomeScreenViewModel>()
             HomeScreen(
                 modifier = modifier,
                 navController,
@@ -29,7 +29,7 @@ fun Navigation(modifier: Modifier = Modifier) {
             )
         }
         composable(Screen.FlashCards.route) {
-            val flashCardsViewModel: FlashCardsViewModel = viewModel()
+            val flashCardsViewModel = hiltViewModel<FlashCardsViewModel>()
             FlashCardsScreen(
                 modifier = modifier,
                 flashCardsViewModel = flashCardsViewModel

@@ -16,7 +16,6 @@ import androidx.navigation.NavController
 import com.example.serpent.ui.theme.CustomTypo
 import com.oysoft.studyapp.R
 import com.oysoft.studyapp.navigation.Screen
-import com.oysoft.studyapp.viewModels.FlashCardsViewModel
 import com.oysoft.studyapp.viewModels.HomeScreenViewModel
 
 @Composable
@@ -48,7 +47,9 @@ fun HomeScreen(
             Button(modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 32.dp),
-                onClick = { homeScreenViewModel.onClickSyncQuestion() }) {
+                onClick = {
+                    homeScreenViewModel.getFlashCards()
+                }) {
                 Text(text = stringResource(R.string.sync_questions))
             }
         }

@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.example.serpent.ui.theme.AppTheme
-import com.oysoft.studyapp.navigation.Navigation
+import com.oysoft.studyapp.navigation.NavigationManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme(darkTheme = true) {
                 Scaffold { paddingScaffold ->
-                    Navigation(modifier = Modifier.padding(paddingScaffold))
+                    NavigationManager(modifier = Modifier.padding(paddingScaffold))
                 }
             }
         }
