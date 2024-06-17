@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.slideInHorizontally
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,8 +27,6 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.serpent.ui.theme.CustomTypo
-import com.example.serpent.ui.theme.onPrimaryDarkMediumContrast
-import com.example.serpent.ui.theme.primaryContainerDarkMediumContrast
 import com.oysoft.studyapp.R
 import com.oysoft.studyapp.viewModels.FlashCardsViewModel
 
@@ -61,7 +58,7 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(if (isFlipped) onPrimaryDarkMediumContrast else primaryContainerDarkMediumContrast)
+//                    .background()
                     .padding(16.dp)
                     .graphicsLayer {
                         if (isFlipped) {
@@ -69,12 +66,13 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
                         }
                     }
             ) {
-                Text(text =
-                    if (!isFlipped)
-                        flashCardsViewModel.getCurrentFlashCard(currentFlashCard).Question
+                Text(
+                    text =
+                    if (isFlipped)
+                        flashCardsViewModel.getCurrentFlashCard(currentFlashCard).Answer
                     else
-                        flashCardsViewModel.getCurrentFlashCard(currentFlashCard).Answer,
-                    style = CustomTypo.bodyMedium
+                        flashCardsViewModel.getCurrentFlashCard(currentFlashCard).Question,
+                    style = if (isFlipped) CustomTypo.bodyMedium else CustomTypo.bodyLarge
                 )
             }
         }
@@ -91,7 +89,7 @@ fun FlashCardsScreen(modifier: Modifier = Modifier, flashCardsViewModel: FlashCa
                         Text(text = stringResource(R.string.ask_me_later))
                     }
                     Button(onClick = {
-                            isFlipped = false
+                        isFlipped = false
                         if (currentFlashCard > flashCardsViewModel.listFlashCards.value.size - 1)
                             currentFlashCard++
                         else
